@@ -23,12 +23,17 @@ my_label = Label(image=image_list[index])
 my_label.grid( row=0, column=0, columnspan=3)
 
 def back():
-    global  index
+    global index
     global image_list
     global my_label
     if(index == 0):
         index=4
-    else:index -= 1
+    else:
+        index -= 1
+    my_label.grid_forget()
+    my_label = Label(image=image_list[index])
+    my_label.grid(row=0, column=0, columnspan=3)
+
 
 def forwar():
     global index
@@ -38,7 +43,6 @@ def forwar():
         index = 0
     else:
         index += 1
-
 
     my_label.grid_forget()
     my_label = Label(image=image_list[index])
